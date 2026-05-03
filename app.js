@@ -1,28 +1,30 @@
 const express = require("express");
 const cors = require("cors");
 const dotenv = require("dotenv");
-const connectDB = require("./config/db");
 
 dotenv.config();
 
 const app = express();
 
-// middleware
 app.use(cors());
 app.use(express.json());
 
-// conectar MongoDB
+// DB
+const connectDB = require("./config/db");
 connectDB();
 
-// rutas
-app.use("/usuarios", require("./routes/usuarioRoutes"));
+// ROUTES
+const movementRoutes = require("./routes/movementRoutes");
 
+app.use("/movimientos", movementRoutes);
+
+// TEST
 app.get("/", (req, res) => {
-  res.json({ message: "API funcionando 🚀" });
+  res.send("API Financiera funcionando ✔");
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 10000;
 
 app.listen(PORT, () => {
-  console.log("Servidor en puerto " + PORT);
+  console.log("Servidor en puerto", PORT);
 });

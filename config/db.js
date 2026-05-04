@@ -7,6 +7,8 @@ const connectDB = async () => {
   } catch (error) {
     console.log("Error MongoDB:", error.message);
   }
+
+  console.log("backend actualizado");
 };
 
 module.exports = connectDB;

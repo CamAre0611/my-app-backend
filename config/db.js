@@ -8,7 +8,7 @@ const connectDB = async () => {
     console.log("Error MongoDB:", error.message);
   }
 
-  console.log("backend actualizado");
+  console.log("CAMBIO REAL DETECTADO 2026");
 };
 
 module.exports = connectDB;
